@@ -1,0 +1,44 @@
+xml
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>GPS Scrabble</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>GPS Scrabble</h1>
+  <div class="container">
+    <!-- Saisie des parties -->
+    <h2>Saisie des parties</h2>
+    <form id="form-partie">
+      <label>Score du joueur : <input type="number" id="input-score-joueur" value="0"></label>
+      <label>Gap : <input type="number" id="input-gap" value="0"></label>
+      <label>Score du joueur - Gap : <input type="number" id="score-moins-gap" readonly></label>
+      <label>Nombre de coups : <input type="number" id="input-nb-coups" value="1"></label>
+      <label>Score / nombre de coups : <input type="number" id="ratio-score-coups" readonly></label>
+      <button type="button" onclick="enregistrerPartie()">Enregistrer</button>
+    </form>
+
+    <!-- Ajout Mot raté -->
+    <h2>Mots ratés</h2>
+    <form id="form-mot-rate">
+      <input type="text" id="mot-rate" placeholder="Mot raté">
+      <label><input type="checkbox" value="S" id="cb-s">S</label>
+      <label><input type="checkbox" value="INC" id="cb-inc">INC</label>
+      <label><input type="checkbox" value="PC" id="cb-pc">PC</label>
+      <label><input type="checkbox" value="PL" id="cb-pl">PL</label>
+      <label><input type="checkbox" value="RCH" id="cb-rch">RCH</label>
+      <button type="button" onclick="ajouterMotRate()">Ajouter mot</button>
+    </form>
+    <button id="btn-export-csv">Exporter CSV</button>
+    <ul id="liste-mots-rates"></ul>
+
+    <!-- Histogramme mots ratés -->
+    <h2>Statistiques mots ratés</h2>
+    <canvas id="chart-mots-rates" width="400" height="200"></canvas>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
